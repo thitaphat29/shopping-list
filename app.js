@@ -20,8 +20,8 @@ $(document).ready(function(){
 	
 
 	});
-
-	$("ul").on("click",".shopping-item-toggle",function(event){
+	//when clicking at check button
+	$("ul").on("click",".shopping-item-toggle",function(event){ 
 		$(this).closest("li").find(".shopping-item").toggleClass("shopping-item__checked");
 		//$(this).closest("span").toggleClass("shopping-item__checked");
 		
@@ -35,6 +35,7 @@ $(document).ready(function(){
 	// enter event
 	$("#js-shopping-list-form").keydown(function(event) {
 		if(event.keyCode == 13){
+			event.preventDefault(); // comment this out to check!
 			console.log("enter pressed!");
 			var newItem = $("#shopping-list-entry").val();
 
@@ -43,7 +44,7 @@ $(document).ready(function(){
 				'<button class="shopping-item-toggle">'+
 	         		'<span class="button-label">check</span>'+
 	          	'</button>'+
-	          	'<button class="shopping-item-delete">'+
+	          	'&nbsp;<button class="shopping-item-delete">'+
 	            	'<span class="button-label">delete</span>'+
 	          	'</button>'+
 	        '</div></li>');
